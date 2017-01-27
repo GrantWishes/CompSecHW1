@@ -20,7 +20,6 @@ long power(int base, int exponent) {
  * the language. As you can see, my conversion from binary to hex was
  * "interesting", to say the least. */
 char dontJudge(char* digit) {
-	char *garbage;
 
 	long sorry = strtol(digit, 0, 10);
 	
@@ -42,6 +41,7 @@ char dontJudge(char* digit) {
 		case 1101: 	return 'D';
 		case 1110: 	return 'E';
 		case 1111:	return 'F';
+		default: return '?';
 	}	
 }
 
@@ -101,7 +101,7 @@ int main (int argc, char * argv[]) {
 		for(int i = 0; i < numberCount; i++) {
 			fscanf(inFile, "%d", &numLength );
 			//printf("This number is %d long!\n", numLength);
-			fscanf(inFile, "%s", &string);
+			fscanf(inFile, "%s", string);
 			//printf("The binary number is %s\n", string);
 			
 			/* Prints the length of the number coming out */
@@ -122,7 +122,7 @@ int main (int argc, char * argv[]) {
 		for(int i = 0; i < numberCount; i++) {
 			fscanf(inFile, "%d", &numLength );
 			//printf("This number is %d long!\n", numLength);
-			fscanf(inFile, "%s", &string);
+			fscanf(inFile, "%s", string);
 			//printf("The hex number is %s\n", string);
 			
 			fprintf(outFile,"%d ", (numLength-2)*4);
@@ -221,6 +221,8 @@ int main (int argc, char * argv[]) {
 	}
 
 	free(substring);
+	fclose(inFile);
+	fclose(outFile);
 	return 0;
 }
 
