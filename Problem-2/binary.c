@@ -46,6 +46,7 @@ int main(int argc, char *argv[]) {
 		}
 		fprintf(outFile, "\n");
 	}
-	
+	fclose(inFile);
+	fclose(outFile);	
 	return 0;
 }
